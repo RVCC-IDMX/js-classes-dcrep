@@ -40,6 +40,8 @@
 // https://nodejs.org/api/modules.html#modules-commonjs-modules
 // const { Polygon } = require('./polygon');
 
+const { Polygon } = require('./polygon');
+
 /**
  * rectangle class
  * @class rectangle class extends Polygon
@@ -64,7 +66,11 @@ class Rectangle extends Polygon {
    * the array of 4 numbers
    */
   constructor(height, width) {
-    // write your code here
+    super([height, width, height, width]);
+    this.height = height;
+    this.width = width;
+    this.name = 'Rectangle';
+    console.log(`Rect constructor: height = ${this.height}, width = ${this.width}`);
   }
 
   /**
@@ -72,7 +78,7 @@ class Rectangle extends Polygon {
    * @returns {boolean} true if the height and width are both a number > 0
    */
   isValid() {
-    // write your code here
+    return ((this.height > 0) && (this.width > 0));
   }
 
   /**
@@ -82,7 +88,7 @@ class Rectangle extends Polygon {
    * otherwise return 0
    */
   area() {
-    // write your code here
+    return (this.width * this.height);
   }
 }
 
